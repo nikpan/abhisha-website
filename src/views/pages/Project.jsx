@@ -26,9 +26,15 @@ class Project extends React.Component {
 
   renderProjectList() {
     let projects = []
-    for (let i = 1; i <= 4; i++) {
-      projects.push(this.renderProject(i.toString()))      
-    }
+    let projectOrder = [5, 3, 6, 1, 4, 2]
+    projectOrder.forEach(projectId => {
+      projects.push(
+        <Row>
+        <Col>
+          {this.renderSingleProject(projectId.toString())}
+        </Col>
+      </Row>)      
+    });
     return (
       <>
         {projects}
@@ -36,20 +42,20 @@ class Project extends React.Component {
     );
   }
 
-  renderProject(projectId) {
+  renderSingleProject(projectId) {
     return (
       <>
-        <Card className="card-profile shadow mt--300">
+        <Card className="card-profile shadow mt-3">
           <div className="px-4">
-            <div className="text-left mt-0">
+            <div className="text-left mt-3">
               <h3>
                 {ProjectInfo.getProjectTitle(projectId)}
                 <span className="font-weight-light"></span>
               </h3>
             </div>
-            <div className="mt-4 py-5 border-top text-center">
+            <div className="mt-3 py-3 border-top text-center">
               <Row className="text-left">
-                <Col lg="14">
+                <Col lg="12">
                   {ProjectInfo.getProjectInfo(projectId)}
                 </Col>
               </Row>
@@ -60,6 +66,15 @@ class Project extends React.Component {
     );
   }
 
+  renderProject(projectId) {
+    if(projectId === "0"){
+      return this.renderProjectList();
+    }
+    else {
+      return this.renderSingleProject(projectId);
+    }
+  }
+
   render() {
     return (
       <>
@@ -68,7 +83,7 @@ class Project extends React.Component {
           <div className="position-relative">
             <SectionHeader/>
             <section className="section">
-              <Container>
+              <Container className="container mt--300">
                 {this.renderProject(this.props.id)}
               </Container>
             </section>

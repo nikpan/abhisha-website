@@ -20,10 +20,6 @@ import { Link } from "react-router-dom";
 import Headroom from "headroom.js";
 import {
   UncontrolledCollapse,
-  DropdownMenu,
-  DropdownItem,
-  DropdownToggle,
-  UncontrolledDropdown,
   Navbar,
   NavItem,
   NavLink,
@@ -33,7 +29,6 @@ import {
   Col,
   UncontrolledTooltip
 } from "reactstrap";
-import ProjectInfo from '../../views/pages/ProjectInfo';
 
 class DemoNavbar extends React.Component {
   componentDidMount() {
@@ -70,34 +65,26 @@ class DemoNavbar extends React.Component {
                     <NavLink to='/profile-page' tag={Link}>
                       <i className="ni ni-ui-04 d-lg-none mr-1" />
                       <span className="nav-link-inner--text">Home</span>
-                  </NavLink>
+                    </NavLink>
                   </NavItem>
-                  <UncontrolledDropdown nav>
-                    <DropdownToggle nav>
+                  <NavItem>
+                    <NavLink to='/project-page' tag={Link}>
                       <i className="ni ni-collection d-lg-none mr-1" />
                       <span className="nav-link-inner--text">Projects</span>
-                    </DropdownToggle>
-                    <DropdownMenu>
-                      <DropdownItem to="/project-page-1" tag={Link}>
-                        {ProjectInfo.getProjectTitle('1')}
-                      </DropdownItem>
-                      <DropdownItem to="/project-page-2" tag={Link}>
-                        {ProjectInfo.getProjectTitle('2')}
-                      </DropdownItem>
-                      <DropdownItem to="/project-page-3" tag={Link}>
-                      {ProjectInfo.getProjectTitle('3')}
-                      </DropdownItem>
-                      <DropdownItem to="/project-page-4" tag={Link}>
-                      {ProjectInfo.getProjectTitle('4')}
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
+                    </NavLink>
+                  </NavItem>
                   <NavItem>
-                  <NavLink to='/resume-page' tag={Link}>
-                    <i className="fas fa-file-pdf"/>
-                    <span className="nav-link-inner--text">Resume</span>
-                  </NavLink>
-                </NavItem>
+                    <NavLink to='/certifications-page' tag={Link}>
+                      <i className="ni ni-trophy d-lg-none mr-1" />
+                      <span className="nav-link-inner--text">Certifications</span>
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink to='/resume-page' tag={Link}>
+                      <i className="ni ni-single-copy-04 d-lg-none mr-1"/>
+                      <span className="nav-link-inner--text">Resume</span>
+                    </NavLink>
+                  </NavItem>
                 </Nav>
                 <Nav className="align-items-lg-center ml-lg-auto" navbar>
                   <NavItem>

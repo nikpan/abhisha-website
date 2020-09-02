@@ -27,6 +27,7 @@ import Profile from "views/pages/Profile.jsx";
 import ProjectPage from "views/pages/Project.jsx";
 import ResumePage from "views/pages/Resume.jsx";
 import Index from "views/Index";
+import Certifications from "views/pages/Certifications";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -40,6 +41,11 @@ ReactDOM.render(
         path="/profile-page"
         exact
         render={props => <Profile {...props} />}
+      />
+      <Route
+        path="/project-page"
+        exact
+        render={props => <ProjectPage {...props} id='0' />}
       />
       <Route
         path="/project-page-1"
@@ -62,15 +68,20 @@ ReactDOM.render(
         render={props => <ProjectPage {...props} id='4' />}
       />
       <Route
+        path="/certifications-page"
+        exact
+        render={props => <Certifications {...props} id='0' />}
+      />
+      <Route
         path="/resume-page"
         exact
         render={props => <ResumePage {...props} />}
       />
-      <Route
+      {/* <Route
         path="/index-page"
         exact
         render={props => <Index {...props} />}
-      />
+      /> */}
       <Redirect to="/" />
     </Switch>
   </BrowserRouter>,
